@@ -1,5 +1,4 @@
 package org.example;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /*
@@ -11,24 +10,15 @@ public class App
 {
     public static void main( String[] args )
     {
-        DecimalFormat f = new DecimalFormat("##.00");
         Scanner scanner = new Scanner(System.in);
-        float principal, interestRate, years, finalValue;
+        final int drivingAge = 16;
+        int ageInput;
 
-        System.out.println( "Enter the principal: " );
-        principal = scanner.nextFloat();
+        System.out.println( "What is your age? " );
+        ageInput = scanner.nextInt();
 
-        System.out.println( "Enter the rate of interest: " );
-        interestRate = scanner.nextFloat();
+        String message = (ageInput >= drivingAge) ? "You are old enough to legally drive." : "You are not old enough to legally drive.";
 
-        System.out.println( "Enter the number of years: " );
-        years = scanner.nextFloat();
-
-        interestRate /= 100;
-        finalValue = principal * (1 + interestRate*years);
-        interestRate *= 100;
-
-        System.out.println( "After " + (int)years + " years at " + interestRate +
-                "%, the investment will be worth $" + f.format(finalValue));
+        System.out.println(message);
     }
 }
